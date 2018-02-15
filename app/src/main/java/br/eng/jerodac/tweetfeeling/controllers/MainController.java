@@ -18,4 +18,8 @@ public class MainController {
 
     }
 
+    public void getTweetList(){
+
+    }
+
 }

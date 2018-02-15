@@ -1,5 +1,6 @@
 package br.eng.jerodac.tweetfeeling.utils;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
@@ -31,10 +32,10 @@ public class FlowManager {
     }
 
     //Replace Fragment
-    public void replace(BaseFragment newFragment, boolean backStack) {
+    public void replace(Fragment newFragment, boolean backStack) {
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.replace(mContainer, newFragment, newFragment.getTagName());
+        ft.replace(mContainer, newFragment, "");
         if (backStack) {
             ft.addToBackStack(null);
         }

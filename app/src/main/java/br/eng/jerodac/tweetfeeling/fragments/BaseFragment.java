@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import butterknife.Unbinder;
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends ListFragment{
 
     private Unbinder unbinder;
 

@@ -1,7 +1,9 @@
 package br.eng.jerodac.tweetfeeling;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import br.eng.jerodac.tweetfeeling.fragments.ListTweetsFragment;
 import br.eng.jerodac.tweetfeeling.fragments.LoadingFragment;
 
 /**
@@ -17,7 +19,10 @@ public class MainActivity extends BaseActivity {
             if (savedInstanceState != null) {
                 return;
             }
-            getFlowManager().replace(new LoadingFragment(), false);
+            getFlowManager().replace(new ListTweetsFragment(), false);
         }
+
+//        Intent i = new Intent(getBaseContext(), TimelineActivity.class);
+//        startActivity(i);
     }
 }
