@@ -32,6 +32,7 @@ public class ListTweetsFragment extends BaseFragment {
     @Override
     protected void initComponents(View rootView) {
         final SearchTimeline timeline = new SearchTimeline.Builder().query("#twitter").build();
+        //final CustomTweetTimelineListAdapter adapter = new CustomTweetTimelineListAdapter(getContext(), timeline);
         final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(getActivity())
                 .setTimeline(timeline)
                 .setViewStyle(R.style.tw__TweetLightWithActionsStyle)
