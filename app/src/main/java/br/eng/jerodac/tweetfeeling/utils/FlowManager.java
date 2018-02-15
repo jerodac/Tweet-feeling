@@ -13,7 +13,7 @@ import br.eng.jerodac.tweetfeeling.fragments.BaseFragment;
 public class FlowManager {
 
     private BaseActivity mActivity;
-    private int mContainer = 0;
+    private int mContainer = R.id.fragment_container;
     private FragmentManager mFragmentManager;
 
     public FlowManager(BaseActivity appCompatActivity) {
