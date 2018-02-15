@@ -1,9 +1,15 @@
 package br.eng.jerodac.tweetfeeling;
 
-import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 }
