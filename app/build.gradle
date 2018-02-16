@@ -72,4 +72,6 @@ dependencies {
     compile 'com.google.apis:google-api-services-language:v1beta2-rev6-1.22.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile 'commons-io:commons-io:2.5'
+    compile 'com.luolc:emoji-rain:0.1.1'
+    compile 'pl.bclogic:pulsator4droid:1.0.3'
 }
