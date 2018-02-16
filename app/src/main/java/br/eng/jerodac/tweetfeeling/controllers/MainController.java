@@ -1,12 +1,12 @@
 package br.eng.jerodac.tweetfeeling.controllers;
 
-import android.util.Log;
-
 import com.google.api.services.language.v1beta2.model.AnnotateTextResponse;
 
 import br.eng.jerodac.tweetfeeling.language.NaturalLanguageHelper;
 import br.eng.jerodac.tweetfeeling.language.NaturalLanguageInitializer;
 import br.eng.jerodac.tweetfeeling.models.Model;
+import br.eng.jerodac.tweetfeeling.presenters.Presenter;
+import br.eng.jerodac.tweetfeeling.utils.AppLog;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
@@ -46,7 +46,7 @@ public class MainController {
         mModel.setTweetText(tweetText);
     }
 
-    public void analytzText() {
+    public void analytzText(Presenter presenter) {
         Single.create(
                 (SingleOnSubscribe<AnnotateTextResponse>) emitter -> emitter.onSuccess(
                         NaturalLanguageInitializer.getNaturalLanguageService()
@@ -62,14 +62,15 @@ public class MainController {
 
                     @Override
                     public void onSuccess(AnnotateTextResponse annotateTextResponse) {
-                        Log.v("TAG", "sucesso");
+                        AppLog.v(AppLog.TAG, "Success");
+                        presenter.onSuccess(getModel());
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.v("TAG", "Erro:" + e.getMessage());
-                        Log.v("TAG", "Erro:" + e.getCause());
+                        AppLog.e(AppLog.TAG, "Error", e);
+                        presenter.onError();
                     }
                 });
 
