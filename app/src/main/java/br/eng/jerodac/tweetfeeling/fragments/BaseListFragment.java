@@ -4,23 +4,24 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import br.eng.jerodac.tweetfeeling.MainActivity;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.controllers.MainController;
 import br.eng.jerodac.tweetfeeling.models.Model;
+import br.eng.jerodac.tweetfeeling.utils.FlowManager;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
  */
-public abstract class BaseListFragment extends ListFragment{
+public abstract class BaseListFragment extends ListFragment {
 
     private Unbinder unbinder;
 
@@ -46,8 +47,7 @@ public abstract class BaseListFragment extends ListFragment{
             return super.onCreateView(inflater, container, savedInstanceState);
         } else {
             //create ContextThemeWrapper from the original Activity Context with the custom theme
-            @SuppressLint("RestrictedApi")
-            final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), getTheme());
+            @SuppressLint("RestrictedApi") final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), getTheme());
 
             // clone the inflater using the ContextThemeWrapper
             LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
@@ -76,12 +76,20 @@ public abstract class BaseListFragment extends ListFragment{
         super.onViewStateRestored(savedInstanceState);
     }
 
-    protected MainController getController(){
+    protected MainController getController() {
         return MainController.getInstance();
     }
 
-    protected Model getModel(){
+    protected Model getModel() {
         return MainController.getInstance().getModel();
+    }
+
+    protected MainActivity getMainActivity() {
+        return (MainActivity) getActivity();
+    }
+
+    protected FlowManager getFlowManager() {
+        return getMainActivity().getFlowManager();
     }
 
     @Override

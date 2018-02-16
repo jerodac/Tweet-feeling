@@ -1,21 +1,17 @@
 package br.eng.jerodac.tweetfeeling.fragments;
 
-import android.database.DataSetObserver;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterAuthException;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.SearchTimeline;
 import com.twitter.sdk.android.tweetui.TimelineResult;
-import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 
 import br.eng.jerodac.tweetfeeling.R;
-import br.eng.jerodac.tweetfeeling.TwitterCoreMainActivity;
+import br.eng.jerodac.tweetfeeling.adapter.CustomTweetTimelineListAdapter;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
@@ -44,32 +40,12 @@ public class ListTweetsFragment extends BaseListFragment {
                 .query(getModel().getTweetTag())
                 .build();
 
-        //final CustomTweetTimelineListAdapter adapter = new CustomTweetTimelineListAdapter(getContext(), timeline);
-        final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(getActivity())
-                .setTimeline(timeline)
-                .setViewStyle(R.style.tw__TweetLightWithActionsStyle)
-                .setOnActionCallback(actionCallback)
-                .build();
+        CustomTweetTimelineListAdapter adapter = new CustomTweetTimelineListAdapter(getContext(), timeline);
 
         setListAdapter(adapter);
+        adapter.setOnListItemClickListener(onListItemClickListener);
         adapter.refresh(updateCallback);
     }
-
-    // launch the app login activity when a guest user tries to favorite a Tweet
-    final Callback<Tweet> actionCallback = new Callback<Tweet>() {
-        @Override
-        public void success(Result<Tweet> result) {
-            Log.v("TAG", "Callback: success");
-        }
-
-        @Override
-        public void failure(TwitterException exception) {
-            Log.v("TAG", "Callback: Erro");
-            if (exception instanceof TwitterAuthException) {
-                startActivity(TwitterCoreMainActivity.newIntent(getActivity()));
-            }
-        }
-    };
 
     final Callback<TimelineResult<Tweet>> updateCallback = new Callback<TimelineResult<Tweet>>() {
         @Override
@@ -79,8 +55,12 @@ public class ListTweetsFragment extends BaseListFragment {
 
         @Override
         public void failure(TwitterException exception) {
-            validate();
+            //validate();
         }
+    };
+
+    CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
+        getFlowManager().replace(new FeelingTweetFragment(), false);
     };
 
     private void validate() {

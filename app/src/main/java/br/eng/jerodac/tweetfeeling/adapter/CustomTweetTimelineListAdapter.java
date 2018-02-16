@@ -3,18 +3,17 @@ package br.eng.jerodac.tweetfeeling.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.Timeline;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 
-import br.eng.jerodac.tweetfeeling.fragments.ListTweetsFragment;
-
 /**
- * Created by cin_jcunha on 15/02/2018.
+ * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
  */
 public class CustomTweetTimelineListAdapter extends TweetTimelineListAdapter {
+
+    private OnListItemClickListener mOnListItemClickListener;
 
     public CustomTweetTimelineListAdapter(Context context, Timeline<Tweet> timeline) {
         super(context, timeline);
@@ -31,14 +30,17 @@ public class CustomTweetTimelineListAdapter extends TweetTimelineListAdapter {
 
         //enable root view and attach custom listener
         view.setEnabled(true);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tweetId = "click tweetId:" + getItemId(position);
-                Toast.makeText(context, tweetId, Toast.LENGTH_SHORT).show();
+        view.setOnClickListener(v -> {
+            String tweetId = "click tweetId:" + getItemId(position);
+            if (mOnListItemClickListener != null) {
+                mOnListItemClickListener.onClickItem(position, getItem(position), view);
             }
         });
         return view;
+    }
+
+    public void setOnListItemClickListener(OnListItemClickListener onListItemClickListener) {
+        mOnListItemClickListener = onListItemClickListener;
     }
 
     private void disableViewAndSubViews(ViewGroup layout) {
@@ -53,6 +55,10 @@ public class CustomTweetTimelineListAdapter extends TweetTimelineListAdapter {
                 child.setLongClickable(false);
             }
         }
+    }
+
+    public interface OnListItemClickListener {
+        void onClickItem(int position, Tweet tweet, View view);
     }
 
 }

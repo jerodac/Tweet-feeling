@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import br.eng.jerodac.tweetfeeling.MainActivity;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.controllers.MainController;
+import br.eng.jerodac.tweetfeeling.models.Model;
 import br.eng.jerodac.tweetfeeling.utils.FlowManager;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -79,6 +80,10 @@ public abstract class BaseFragment extends Fragment{
 
     protected MainController getController(){
         return MainController.getInstance();
+    }
+
+    protected Model getModel(){
+        return MainController.getInstance().getModel();
     }
 
     protected MainActivity getMainActivity(){

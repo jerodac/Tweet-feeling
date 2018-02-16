@@ -21,7 +21,7 @@ public class MainActivity extends BaseActivity {
             if (savedInstanceState != null) {
                 return;
             }
-            getFlowManager().replace(new FeelingTweetFragment(), false);
+            getFlowManager().replace(SearhTweetByTagFragment.newInstance(), false);
         }
 
 //        Intent i = new Intent(getBaseContext(), TimelineActivity.class);
