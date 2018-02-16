@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TweetFeeling</string>
     <string name="kit_twittercore">Twitter Core</string>
+
+    <!-- Screen search tweet -->
+    <string name="search_tweet_title_screen">Hello, we say a tweet tag to do our research :)</string>
+    <string name="hint_tweet_tag">#TweetTag</string>
+
 </resources>

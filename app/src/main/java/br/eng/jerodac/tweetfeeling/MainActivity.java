@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import br.eng.jerodac.tweetfeeling.fragments.ListTweetsFragment;
 import br.eng.jerodac.tweetfeeling.fragments.LoadingFragment;
+import br.eng.jerodac.tweetfeeling.fragments.SearhTweetByTagFragment;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
@@ -19,7 +20,7 @@ public class MainActivity extends BaseActivity {
             if (savedInstanceState != null) {
                 return;
             }
-            getFlowManager().replace(new ListTweetsFragment(), false);
+            getFlowManager().replace(SearhTweetByTagFragment.newInstance(), false);
         }
 
 //        Intent i = new Intent(getBaseContext(), TimelineActivity.class);

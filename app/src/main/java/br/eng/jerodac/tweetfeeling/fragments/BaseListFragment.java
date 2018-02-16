@@ -11,17 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import br.eng.jerodac.tweetfeeling.MainActivity;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.controllers.MainController;
-import br.eng.jerodac.tweetfeeling.utils.FlowManager;
+import br.eng.jerodac.tweetfeeling.models.Model;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
  */
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseListFragment extends ListFragment{
 
     private Unbinder unbinder;
 
@@ -81,12 +80,8 @@ public abstract class BaseFragment extends Fragment{
         return MainController.getInstance();
     }
 
-    protected MainActivity getMainActivity(){
-        return (MainActivity) getActivity();
-    }
-
-    protected FlowManager getFlowManager(){
-       return getMainActivity().getFlowManager();
+    protected Model getModel(){
+        return MainController.getInstance().getModel();
     }
 
     @Override
