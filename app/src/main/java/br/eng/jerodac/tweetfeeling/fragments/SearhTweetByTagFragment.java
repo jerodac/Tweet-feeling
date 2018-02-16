@@ -13,7 +13,7 @@ import butterknife.OnClick;
  */
 public class SearhTweetByTagFragment extends BaseFragment {
 
-    public static SearhTweetByTagFragment newInstance(){
+    public static SearhTweetByTagFragment newInstance() {
         return new SearhTweetByTagFragment();
     }
 

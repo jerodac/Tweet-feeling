@@ -5,6 +5,7 @@ package br.eng.jerodac.tweetfeeling.models;
  */
 public class Model {
     private String tweetTag;
+    private String tweetText;
 
     public String getTweetTag() {
         return tweetTag;
@@ -16,5 +17,13 @@ public class Model {
 
     public void setTweetTag(String tweetTag) {
         this.tweetTag = tweetTag;
+    }
+
+    public String getTweetText() {
+        return tweetText;
+    }
+
+    public void setTweetText(String tweetText) {
+        this.tweetText = tweetText;
     }
 }

@@ -8,6 +8,7 @@ import com.twitter.sdk.android.core.TwitterApiClient;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterSession;
 
+import br.eng.jerodac.tweetfeeling.language.NaturalLanguageInitializer;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -48,5 +49,7 @@ public class TweetFeelingApplication extends Application {
             customApiClient = new TwitterApiClient(customClient);
             TwitterCore.getInstance().addGuestApiClient(customApiClient);
         }
+
+        NaturalLanguageInitializer.init();
     }
 }
