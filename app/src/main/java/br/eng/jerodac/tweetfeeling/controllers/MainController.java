@@ -1,6 +1,7 @@
 package br.eng.jerodac.tweetfeeling.controllers;
 
 import com.google.api.services.language.v1beta2.model.AnnotateTextResponse;
+import com.twitter.sdk.android.core.models.Tweet;
 
 import br.eng.jerodac.tweetfeeling.language.NaturalLanguageHelper;
 import br.eng.jerodac.tweetfeeling.language.NaturalLanguageInitializer;
@@ -42,8 +43,8 @@ public class MainController {
         mModel.setTweetTag(tag);
     }
 
-    public void setTweetText(String tweetText) {
-        mModel.setTweetText(tweetText);
+    public void setTweetSelected(Tweet tweet) {
+        mModel.setTweet(tweet);
     }
 
     public void analytzText(Presenter presenter) {
@@ -51,7 +52,7 @@ public class MainController {
                 (SingleOnSubscribe<AnnotateTextResponse>) emitter -> emitter.onSuccess(
                         NaturalLanguageInitializer.getNaturalLanguageService()
                                 .documents()
-                                .annotateText(NaturalLanguageHelper.getRequest(getModel().getTweetText())).execute()))
+                                .annotateText(NaturalLanguageHelper.getRequest(getModel().getTweet().text)).execute()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<AnnotateTextResponse>() {
@@ -63,6 +64,8 @@ public class MainController {
                     @Override
                     public void onSuccess(AnnotateTextResponse annotateTextResponse) {
                         AppLog.v(AppLog.TAG, "Success");
+                        AppLog.v(AppLog.TAG, "Magnitude: "+annotateTextResponse.getDocumentSentiment().getMagnitude());
+                        AppLog.v(AppLog.TAG, "Score: "+annotateTextResponse.getDocumentSentiment().getScore());
                         presenter.onSuccess(getModel());
 
                     }

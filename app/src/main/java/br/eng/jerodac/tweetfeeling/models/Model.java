@@ -1,11 +1,13 @@
 package br.eng.jerodac.tweetfeeling.models;
 
+import com.twitter.sdk.android.core.models.Tweet;
+
 /**
  * Created by Eng. Jean Rodrigo Dalbon Cunha on 16/02/2018.
  */
 public class Model {
     private String tweetTag;
-    private String tweetText;
+    private Tweet tweet;
 
     public String getTweetTag() {
         return tweetTag;
@@ -19,11 +21,11 @@ public class Model {
         this.tweetTag = tweetTag;
     }
 
-    public String getTweetText() {
-        return tweetText;
+    public Tweet getTweet() {
+        return tweet;
     }
 
-    public void setTweetText(String tweetText) {
-        this.tweetText = tweetText;
+    public void setTweet(Tweet tweet) {
+        this.tweet = tweet;
     }
 }
