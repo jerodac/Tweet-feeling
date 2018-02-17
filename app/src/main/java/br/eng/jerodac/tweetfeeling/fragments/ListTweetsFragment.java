@@ -1,8 +1,6 @@
 package br.eng.jerodac.tweetfeeling.fragments;
 
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -62,7 +60,7 @@ public class ListTweetsFragment extends BaseListFragment {
 
     CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
         getController().setTweetSelected(tweet);
-        getFlowManager().replace(new FeelingTweetFragment(), false);
+        getFlowManager().replace(new CheckFeelingTweetFragment(), false);
     };
 
     private void validate() {

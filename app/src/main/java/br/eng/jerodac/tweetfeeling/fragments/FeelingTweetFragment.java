@@ -8,8 +8,6 @@ import com.luolc.emojirain.EmojiRainLayout;
 
 import br.eng.jerodac.tweetfeeling.Feeling;
 import br.eng.jerodac.tweetfeeling.R;
-import br.eng.jerodac.tweetfeeling.models.Model;
-import br.eng.jerodac.tweetfeeling.presenters.Presenter;
 import br.eng.jerodac.tweetfeeling.utils.AnimationSuite;
 import butterknife.BindView;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
@@ -17,7 +15,7 @@ import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 /**
  * Created by cin_jcunha on 16/02/2018.
  */
-public class FeelingTweetFragment extends BaseFragment implements Presenter {
+public class FeelingTweetFragment extends BaseFragment {
 
     @BindView(R.id.group_emoji_container)
     protected EmojiRainLayout emojiCOntainer;
@@ -43,25 +41,15 @@ public class FeelingTweetFragment extends BaseFragment implements Presenter {
 
     @Override
     protected void initComponents(View rootView) {
-        getController().analytzText(this);
-        AnimationSuite.feelingAnimation(emojiCOntainer, Feeling.HAPPY);
-        imgEmoji.setImageResource(Feeling.HAPPY.getResourceImage1());
-        tvFeelingTweet.setText(Feeling.HAPPY.getResourceString());
+        Feeling feeling = getModel().getFeeling();
+        AnimationSuite.feelingAnimation(emojiCOntainer, feeling);
+        imgEmoji.setImageResource(feeling.getResourceImage1());
+        tvFeelingTweet.setText(feeling.getResourceString());
         pulsator.start();
     }
 
     @Override
-    public void onSuccess(Model model) {
-
-    }
-
-    @Override
-    public void onError() {
-
-    }
-
-    @Override
     protected void settings(View rootView) {
-
+        getActivity().setTitle(getModel().getFeeling().getResourceString());
     }
 }

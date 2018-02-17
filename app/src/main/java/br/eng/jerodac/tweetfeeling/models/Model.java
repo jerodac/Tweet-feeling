@@ -2,12 +2,16 @@ package br.eng.jerodac.tweetfeeling.models;
 
 import com.twitter.sdk.android.core.models.Tweet;
 
+import br.eng.jerodac.tweetfeeling.Feeling;
+
 /**
  * Created by Eng. Jean Rodrigo Dalbon Cunha on 16/02/2018.
  */
 public class Model {
     private String tweetTag;
     private Tweet tweet;
+    private float magnitudeFeeling;
+    private float scoreFeeling;
 
     public String getTweetTag() {
         return tweetTag;
@@ -27,5 +31,31 @@ public class Model {
 
     public void setTweet(Tweet tweet) {
         this.tweet = tweet;
+    }
+
+    public float getMagnitudeFeeling() {
+        return magnitudeFeeling;
+    }
+
+    public void setMagnitudeFeeling(float magnitudeFeeling) {
+        this.magnitudeFeeling = magnitudeFeeling;
+    }
+
+    public float getScoreFeeling() {
+        return scoreFeeling;
+    }
+
+    public void setScoreFeeling(float scoreFeeling) {
+        this.scoreFeeling = scoreFeeling;
+    }
+
+    public Feeling getFeeling() {
+        Feeling feeling = Feeling.HAPPY;
+        if (getScoreFeeling() <= 3.33f) {
+            feeling = Feeling.SAD;
+        } else if (getScoreFeeling() <= 6.66f) {
+            feeling = Feeling.NEUTRAL;
+        }
+        return feeling;
     }
 }
