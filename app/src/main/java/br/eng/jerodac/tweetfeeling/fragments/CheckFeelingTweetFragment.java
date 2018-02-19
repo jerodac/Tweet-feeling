@@ -26,13 +26,18 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
         getController().analytzText(this);
         getChildFragmentManager()
                 .beginTransaction()
+                .addToBackStack(null)
                 .replace(R.id.container, new LoadingFragment())
                 .commit();
     }
 
     @Override
     public void onSuccess(Model model) {
-        getFlowManager().replace(new FeelingTweetFragment(), false);
+        getChildFragmentManager()
+                .beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.container, new FeelingTweetFragment())
+                .commit();
     }
 
     @Override

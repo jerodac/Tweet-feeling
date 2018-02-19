@@ -36,7 +36,4 @@ public enum Feeling {
         return resourceString;
     }
 
-    public void setResourceString(int resourceString) {
-        this.resourceString = resourceString;
-    }
 }

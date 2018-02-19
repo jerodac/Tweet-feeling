@@ -66,6 +66,8 @@ public class MainController {
                         AppLog.v(AppLog.TAG, "Success");
                         AppLog.v(AppLog.TAG, "Magnitude: "+annotateTextResponse.getDocumentSentiment().getMagnitude());
                         AppLog.v(AppLog.TAG, "Score: "+annotateTextResponse.getDocumentSentiment().getScore());
+                        mModel.setScoreFeeling(annotateTextResponse.getDocumentSentiment().getScore());
+                        mModel.setMagnitudeFeeling(annotateTextResponse.getDocumentSentiment().getMagnitude());
                         presenter.onSuccess(getModel());
 
                     }

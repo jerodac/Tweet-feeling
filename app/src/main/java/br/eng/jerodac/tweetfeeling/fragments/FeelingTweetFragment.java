@@ -13,18 +13,24 @@ import butterknife.BindView;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 
 /**
- * Created by cin_jcunha on 16/02/2018.
+ * Created by Jean Rodrigo Dalbon Cunha on 16/02/2018.
  */
 public class FeelingTweetFragment extends BaseFragment {
 
     @BindView(R.id.group_emoji_container)
-    protected EmojiRainLayout emojiCOntainer;
+    protected EmojiRainLayout emojiContainer;
 
     @BindView(R.id.tv_tweet_feeling)
     protected AppCompatTextView tvFeelingTweet;
 
     @BindView(R.id.img_emoji)
     protected ImageView imgEmoji;
+
+    @BindView(R.id.tv_score)
+    protected AppCompatTextView tvScore;
+
+    @BindView(R.id.tv_magnitude)
+    protected AppCompatTextView tvMagnitude;
 
     @BindView(R.id.pulsator)
     protected PulsatorLayout pulsator;
@@ -42,9 +48,11 @@ public class FeelingTweetFragment extends BaseFragment {
     @Override
     protected void initComponents(View rootView) {
         Feeling feeling = getModel().getFeeling();
-        AnimationSuite.feelingAnimation(emojiCOntainer, feeling);
+        AnimationSuite.feelingAnimation(emojiContainer, feeling);
         imgEmoji.setImageResource(feeling.getResourceImage1());
         tvFeelingTweet.setText(feeling.getResourceString());
+        tvScore.setText(String.valueOf(getModel().getScoreFeeling()));
+        tvMagnitude.setText(String.valueOf(getModel().getMagnitudeFeeling()));
         pulsator.start();
     }
 

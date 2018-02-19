@@ -10,6 +10,7 @@
     <string name="twitter_feeling_happy">Happy Tweet</string>
     <string name="twitter_feeling_neutral">Neutral Tweet</string>
     <string name="twitter_feeling_sad">Sad Tweet</string>
-
+    <string name="twitter_feeling_score">Score:</string>
+    <string name="twitter_feeling_magnitude">Magnitude:</string>
 
 </resources>

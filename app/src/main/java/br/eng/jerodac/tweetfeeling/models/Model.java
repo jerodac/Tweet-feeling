@@ -51,9 +51,9 @@ public class Model {
 
     public Feeling getFeeling() {
         Feeling feeling = Feeling.HAPPY;
-        if (getScoreFeeling() <= 3.33f) {
+        if (getScoreFeeling() <= 0.33f) {
             feeling = Feeling.SAD;
-        } else if (getScoreFeeling() <= 6.66f) {
+        } else if (getScoreFeeling() <= 0.66f) {
             feeling = Feeling.NEUTRAL;
         }
         return feeling;
