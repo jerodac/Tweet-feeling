@@ -8,4 +8,10 @@
     <color name="color_feeling_neutral">#979797</color>
     <color name="color_feeling_sad">#2533f9</color>
 
+    <color name="primary_disable_button_color">#6024a5d3</color>
+    <color name="primary_button_text_color">#ffffffff</color>
+    <color name="primary_button_disable_text_color">#4Dffffff</color>
+    <color name="color_text_button">#FFFFFF</color>
+    <color name="ripple_background">#33969696</color>
+
 </resources>

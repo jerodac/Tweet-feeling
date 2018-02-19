@@ -5,6 +5,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 
 import br.eng.jerodac.tweetfeeling.R;
+import br.eng.jerodac.tweetfeeling.utils.AnimationSuite;
 import br.eng.jerodac.tweetfeeling.utils.AppUtil;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,13 +37,14 @@ public class SearchTweetByTagFragment extends BaseFragment {
 
     @Override
     protected void initComponents(View rootView) {
-
+        AnimationSuite.fadeInShowContainer(rootView);
     }
 
     private boolean validateField() {
         if (edtTag.getText().toString().equals("")) {
             inputLayoutTag.setErrorEnabled(true);
             inputLayoutTag.setError("Please insert a tweet tag ;)");
+            return false;
         }
         return true;
     }

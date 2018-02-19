@@ -8,18 +8,18 @@
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:textSize="24sp"
-        android:text="@string/search_tweet_title_screen"/>
-
+        android:text="@string/search_tweet_title_screen"
+        android:textSize="24sp" />
 
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_tag"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/edt_tag"
@@ -31,8 +31,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_search_tweets"
+        style="@style/PrimaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search"/>
+        android:layout_marginTop="20dp"
+        android:text="Search" />
 
 </LinearLayout>

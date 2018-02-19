@@ -3,6 +3,7 @@ package br.eng.jerodac.tweetfeeling.utils;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
@@ -39,6 +40,19 @@ public class AnimationSuite {
             emojiContainer.removeAllViews();
             pulsatorLayout.removeAllViews();
             view.removeAllViews();
+        }
+    }
+
+    public static void fadeInShowContainer(View view) {
+        try {
+            if (view != null) {
+                if (view.getVisibility() != View.VISIBLE) {
+                    view.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.fade_in));
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
+        } finally {
+            return;
         }
     }
 

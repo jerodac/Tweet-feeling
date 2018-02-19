@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Primary Button -->
+    <style name="PrimaryButton" parent="MaterialPrimaryButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:background">@drawable/primary_button_background</item>
+        <item name="android:textColor">@color/color_text_button</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="MaterialPrimaryButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/material_button_selector</item>
+        <item name="android:textColorPrimary">@color/material_button_text_selector</item>
+    </style>
+
 </resources>
