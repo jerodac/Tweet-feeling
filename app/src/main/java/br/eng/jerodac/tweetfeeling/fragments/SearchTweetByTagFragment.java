@@ -5,16 +5,17 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 
 import br.eng.jerodac.tweetfeeling.R;
+import br.eng.jerodac.tweetfeeling.utils.AppUtil;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
  * Created by Eng. Jean Rodrigo Dalbon Cunha on 16/02/2018.
  */
-public class SearhTweetByTagFragment extends BaseFragment {
+public class SearchTweetByTagFragment extends BaseFragment {
 
-    public static SearhTweetByTagFragment newInstance() {
-        return new SearhTweetByTagFragment();
+    public static SearchTweetByTagFragment newInstance() {
+        return new SearchTweetByTagFragment();
     }
 
     @BindView(R.id.input_layout_tag)
@@ -57,5 +58,11 @@ public class SearhTweetByTagFragment extends BaseFragment {
     @Override
     protected void settings(View rootView) {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        AppUtil.hideKeyboard(getView());
+        super.onDestroyView();
     }
 }

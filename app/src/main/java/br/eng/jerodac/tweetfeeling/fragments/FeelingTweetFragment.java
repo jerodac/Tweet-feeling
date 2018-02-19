@@ -48,12 +48,11 @@ public class FeelingTweetFragment extends BaseFragment {
     @Override
     protected void initComponents(View rootView) {
         Feeling feeling = getModel().getFeeling();
-        AnimationSuite.feelingAnimation(emojiContainer, feeling);
+        AnimationSuite.feelingAnimation(rootView);
         imgEmoji.setImageResource(feeling.getResourceImage1());
         tvFeelingTweet.setText(feeling.getResourceString());
         tvScore.setText(String.valueOf(getModel().getScoreFeeling()));
         tvMagnitude.setText(String.valueOf(getModel().getMagnitudeFeeling()));
-        pulsator.start();
     }
 
     @Override
