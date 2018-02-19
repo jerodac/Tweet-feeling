@@ -2,6 +2,7 @@ package br.eng.jerodac.tweetfeeling.fragments;
 
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.luolc.emojirain.EmojiRainLayout;
@@ -58,5 +59,11 @@ public class FeelingTweetFragment extends BaseFragment {
     @Override
     protected void settings(View rootView) {
         getActivity().setTitle(getModel().getFeeling().getResourceString());
+    }
+
+    @Override
+    public void onDestroyView() {
+        AnimationSuite.cleanFeelingAnimation((ViewGroup) getView());
+        super.onDestroyView();
     }
 }

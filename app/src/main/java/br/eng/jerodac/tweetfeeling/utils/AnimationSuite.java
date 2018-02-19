@@ -1,6 +1,8 @@
 package br.eng.jerodac.tweetfeeling.utils;
 
+import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
@@ -15,7 +17,6 @@ import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 public class AnimationSuite {
 
     public static void feelingAnimation(View view) {
-
         EmojiRainLayout emojiContainer = view.findViewById(R.id.group_emoji_container);
         PulsatorLayout pulsatorLayout = view.findViewById(R.id.pulsator);
 
@@ -25,8 +26,21 @@ public class AnimationSuite {
         emojiContainer.addEmoji(feeling.getResourceImage3());
         emojiContainer.startDropping();
 
-        pulsatorLayout.setColor(feeling.getResourceColor());
+        pulsatorLayout.setColor(ContextCompat.getColor(view.getContext(), feeling.getResourceColor()));
         pulsatorLayout.start();
     }
+
+    public static void cleanFeelingAnimation(ViewGroup view) {
+        if (view != null) {
+            EmojiRainLayout emojiContainer = view.findViewById(R.id.group_emoji_container);
+            PulsatorLayout pulsatorLayout = view.findViewById(R.id.pulsator);
+            emojiContainer.stopDropping();
+            pulsatorLayout.stop();
+            emojiContainer.removeAllViews();
+            pulsatorLayout.removeAllViews();
+            view.removeAllViews();
+        }
+    }
+
 
 }

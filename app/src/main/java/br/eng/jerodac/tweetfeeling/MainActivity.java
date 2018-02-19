@@ -19,8 +19,5 @@ public class MainActivity extends BaseActivity {
             }
             getFlowManager().replace(SearchTweetByTagFragment.newInstance(), false);
         }
-
-//        Intent i = new Intent(getBaseContext(), TimelineActivity.class);
-//        startActivity(i);
     }
 }

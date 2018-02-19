@@ -58,9 +58,9 @@ public class ListTweetsFragment extends BaseListFragment {
         }
     };
 
-    CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
+    private CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
         getController().setTweetSelected(tweet);
-        getFlowManager().replace(new CheckFeelingTweetFragment(), false);
+        getFlowManager().replace(CheckFeelingTweetFragment.newInstance(), true);
     };
 
     private void validate() {

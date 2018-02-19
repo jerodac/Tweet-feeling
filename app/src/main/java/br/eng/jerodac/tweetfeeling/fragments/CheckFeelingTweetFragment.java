@@ -11,6 +11,10 @@ import br.eng.jerodac.tweetfeeling.presenters.Presenter;
  */
 public class CheckFeelingTweetFragment extends BaseFragment implements Presenter {
 
+    public static CheckFeelingTweetFragment newInstance() {
+        return new CheckFeelingTweetFragment();
+    }
+
     @Override
     public String getTagName() {
         return getClass().getName();
@@ -18,7 +22,7 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
 
     @Override
     protected int getLayoutResource() {
-        return R.layout.test;
+        return R.layout.check_feeling_tweet_fragment;
     }
 
     @Override
@@ -26,18 +30,16 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
         getController().analytzText(this);
         getChildFragmentManager()
                 .beginTransaction()
-                .addToBackStack(null)
                 .replace(R.id.container, new LoadingFragment())
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     @Override
     public void onSuccess(Model model) {
         getChildFragmentManager()
                 .beginTransaction()
-                .addToBackStack(null)
                 .replace(R.id.container, new FeelingTweetFragment())
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     @Override
@@ -48,5 +50,11 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
     @Override
     protected void settings(View rootView) {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        getActivity().setTitle(R.string.app_name);
+        super.onDestroyView();
     }
 }
