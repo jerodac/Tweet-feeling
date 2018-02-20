@@ -31,7 +31,6 @@ public class CustomTweetTimelineListAdapter extends TweetTimelineListAdapter {
         //enable root view and attach custom listener
         view.setEnabled(true);
         view.setOnClickListener(v -> {
-            String tweetId = "click tweetId:" + getItemId(position);
             if (mOnListItemClickListener != null) {
                 mOnListItemClickListener.onClickItem(position, getItem(position), view);
             }
