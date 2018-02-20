@@ -16,7 +16,7 @@ public class FlowManager {
     private BaseActivity mActivity;
     private int mContainer = R.id.fragment_container;
     private int mContainerChild = R.id.fragment_container_child;
-    private FragmentManager mFragmentManager;
+    private static FragmentManager mFragmentManager;
 
     public FlowManager(BaseActivity appCompatActivity) {
         mActivity = appCompatActivity;
@@ -49,6 +49,10 @@ public class FlowManager {
             ft.addToBackStack(null);
         }
         ft.commit();
+    }
+
+    public static FragmentManager getFragmentManager(){
+        return mFragmentManager;
     }
 
 }

@@ -49,8 +49,10 @@ public class SearchTweetByTagFragment extends BaseFragment {
             inputLayoutTag.setErrorEnabled(true);
             inputLayoutTag.setError("Please insert a tweet tag ;)");
             return false;
+        } else {
+            inputLayoutTag.setErrorEnabled(false);
+            return true;
         }
-        return true;
     }
 
     @OnClick(R.id.btn_search_tweets)

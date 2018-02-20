@@ -7,4 +7,8 @@ public class Robot {
     public static SearchTweetTagRobot getSearchTweetTagRobot() {
         return new SearchTweetTagRobot();
     }
+
+    public static ListTweetsRobot getListTweetRobot(){
+        return new ListTweetsRobot();
+    }
 }

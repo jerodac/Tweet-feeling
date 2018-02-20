@@ -4,7 +4,9 @@
 
     <!-- Screen search tweet -->
     <string name="search_tweet_title_screen">Hello, we say a tweet tag to do our research :)</string>
+    <string name="search_tweet_button_text">Search</string>
     <string name="hint_tweet_tag">#TweetTag</string>
+
 
     <!-- Tweet Feeling -->
     <string name="twitter_feeling_happy">Happy Tweet</string>

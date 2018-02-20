@@ -12,6 +12,7 @@ import org.hamcrest.Matchers;
 
 import java.util.concurrent.TimeUnit;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
@@ -43,6 +44,7 @@ import static br.eng.jerodac.tweetfeeling.custom.CustomMatcher.swipeRightFromCen
 import static br.eng.jerodac.tweetfeeling.custom.CustomMatcher.swipeUp;
 import static br.eng.jerodac.tweetfeeling.custom.CustomMatcher.waitId;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.not;
 
 /**
@@ -340,5 +342,9 @@ public class UIAutomation {
 
     public static void clickRecyclerViewItem(@IdRes int recyclerId, int item) {
         onView(withId(recyclerId)).perform(RecyclerViewActions.actionOnItemAtPosition(item, click()));
+    }
+
+    public static void clickListViewItem(int position) {
+        onData(anything()).inAdapterView(withId(android.R.id.list)).atPosition(position).perform(click());
     }
 }
