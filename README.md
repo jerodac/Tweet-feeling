@@ -1,5 +1,5 @@
 # Tweet-feeling
-Tweet Lib integration + Google Natural Language
+Loading a Tweet List with the help of the Twitter SDK using Google Natural Language for analyze.
 
 ## Libraries used
 - AppCompat v7
