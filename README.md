@@ -23,6 +23,29 @@ https://
 - Senior Android Engineer <br>
   E-MAIL > jerodac@gmail.com <br>
   SKYPE  > jerodac@hotmail.com.br 
+  
+## TESTS
+### UI Tests
+SearchTweetTagTest.java
+  - testScreenComponents()
+  - testSearchTweetTagEmptyField()
+  - testSearchTweetTagField()
+  - testValidateController()
+  - testCheckFragmentHeap()
+
+ListTweetsTest.java
+ - testValidateScreenComponents()
+ - testPopulateListTweets()
+ - testChooseClickItemList()
+ - testCheckFragmentHeap()
+
+
+### Unit Tests
+NaturalLanguageUnitTest.java
+  - testNaturalLanguageLibVerifyAuth()
+  - testNaturalLanguageLibHappyScore()
+  - testNaturalLanguageLibNeutralScore()
+  - testNaturalLanguageLibSadScore()  
 
 ##   
 <img src="https://i.imgur.com/TsGQ1Wt.jpg">
