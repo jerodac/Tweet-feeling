@@ -23,15 +23,6 @@ public class FlowManager {
         mFragmentManager = mActivity.getSupportFragmentManager();
     }
 
-    //Adding Fragment
-    public void add(BaseFragment addFragment) {
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.add(mContainer, addFragment, addFragment.getTagName());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
-
     public void replaceChildFragment(FragmentManager childFragmentManager, BaseFragment fragment) {
         childFragmentManager
                 .beginTransaction()
