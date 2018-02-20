@@ -1,5 +1,6 @@
 package br.eng.jerodac.tweetfeeling.fragments;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,9 +8,10 @@ import android.widget.ImageView;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
-import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 import br.eng.jerodac.tweetfeeling.R;
+import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 import br.eng.jerodac.tweetfeeling.utils.AnimationSuite;
+import br.eng.jerodac.tweetfeeling.utils.AppUtil;
 import butterknife.BindView;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 
@@ -52,18 +54,23 @@ public class FeelingTweetFragment extends BaseFragment {
         AnimationSuite.feelingAnimation(rootView);
         imgEmoji.setImageResource(feeling.getResourceImage1());
         tvFeelingTweet.setText(feeling.getResourceString());
+        tvFeelingTweet.setTextColor(ContextCompat.getColor(getContext(), feeling.getResourceColor()));
         tvScore.setText(String.valueOf(getModel().getScoreFeeling()));
         tvMagnitude.setText(String.valueOf(getModel().getMagnitudeFeeling()));
     }
 
     @Override
     protected void settings(View rootView) {
-
+        getMainActivity().getToolbar().setTitle(getModel().getFeeling().getResourceString());
+        getMainActivity().getToolbar().setBackgroundColor(ContextCompat.getColor(getContext(), getModel().getFeeling().getResourceColor()));
+        AppUtil.setStatusBarColor(getMainActivity(), getModel().getFeeling().getmResourceColorDark());
     }
 
     @Override
     public void onDestroyView() {
         AnimationSuite.cleanFeelingAnimation((ViewGroup) getView());
+        getMainActivity().getToolbar().setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        AppUtil.setStatusBarColor(getMainActivity(), R.color.colorPrimaryDark);
         super.onDestroyView();
     }
 }

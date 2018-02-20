@@ -3,10 +3,12 @@ package br.eng.jerodac.tweetfeeling.utils;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
+import br.eng.jerodac.tweetfeeling.TweetFeelingApplication;
 import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.controllers.MainController;
@@ -43,18 +45,35 @@ public class AnimationSuite {
         }
     }
 
-    public static void fadeInShowContainer(View view) {
-        try {
-            if (view != null) {
-                if (view.getVisibility() != View.VISIBLE) {
-                    view.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.fade_in));
-                    view.setVisibility(View.VISIBLE);
+    public static void pulseAnimation(final View view, final AnimationSuiteListener listener) {
+        if (view.isEnabled()) {
+            view.setEnabled(false);
+            Animation pulse = AnimationUtils.loadAnimation(TweetFeelingApplication.context(), R.anim.pulse);
+            view.startAnimation(pulse);
+            pulse.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
                 }
-            }
-        } finally {
-            return;
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    if (listener != null) {
+                        listener.onAnimationComplete();
+                    }
+                    view.setEnabled(true);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
         }
     }
 
+    public interface AnimationSuiteListener {
+        void onAnimationComplete();
+    }
 
 }

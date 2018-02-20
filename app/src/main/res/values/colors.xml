@@ -5,8 +5,11 @@
     <color name="colorAccent">#008B8B</color>
 
     <color name="color_feeling_happy">#ffff00</color>
+    <color name="color_feeling_happy_dark">#b3b301</color>
     <color name="color_feeling_neutral">#979797</color>
+    <color name="color_feeling_neutral_dark">#737373</color>
     <color name="color_feeling_sad">#2533f9</color>
+    <color name="color_feeling_sad_dark">#1624e1</color>
 
     <color name="primary_disable_button_color">#6024a5d3</color>
     <color name="primary_button_text_color">#ffffffff</color>

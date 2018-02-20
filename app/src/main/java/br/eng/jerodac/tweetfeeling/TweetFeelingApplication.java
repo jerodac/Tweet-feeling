@@ -1,6 +1,7 @@
 package br.eng.jerodac.tweetfeeling;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.StrictMode;
 
 import com.twitter.sdk.android.core.Twitter;
@@ -17,9 +18,16 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class TweetFeelingApplication extends Application {
 
+    private static Context mContext;
+
+    public static Context context() {
+        return mContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectAll()
