@@ -25,4 +25,4 @@ https://
   SKYPE  > jerodac@hotmail.com.br 
 
 ##   
-<img src="https://imgur.com/wF3r4rI">
+<img src="https://i.imgur.com/wF3r4rI.jpg">
