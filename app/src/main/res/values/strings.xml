@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Tweet Feeling</string>
-    <string name="kit_twittercore">Twitter Core</string>
+    <string name="error_message">Sorry... try again later :(</string>
+    <string name="empty_message">No tweets found...</string>
+
 
     <!-- Screen search tweet -->
     <string name="search_tweet_title_screen">Hello, we say a tweet tag to do our research :)</string>

@@ -2,12 +2,8 @@ package br.eng.jerodac.tweetfeeling.fragments;
 
 import android.view.View;
 
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.SearchTimeline;
-import com.twitter.sdk.android.tweetui.TimelineResult;
 
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.adapter.CustomTweetTimelineListAdapter;
@@ -27,6 +23,7 @@ public class ListTweetsFragment extends BaseListFragment {
         return getClass().getSimpleName();
     }
 
+    private CustomTweetTimelineListAdapter adapter;
 
     @Override
     protected int getLayoutResource() {
@@ -40,24 +37,11 @@ public class ListTweetsFragment extends BaseListFragment {
                 .query(getModel().getTweetTag())
                 .build();
 
-        CustomTweetTimelineListAdapter adapter = new CustomTweetTimelineListAdapter(getContext(), timeline);
-
+        adapter = new CustomTweetTimelineListAdapter(getContext(), timeline);
         setListAdapter(adapter);
         adapter.setOnListItemClickListener(onListItemClickListener);
-        adapter.refresh(updateCallback);
+
     }
-
-    final Callback<TimelineResult<Tweet>> updateCallback = new Callback<TimelineResult<Tweet>>() {
-        @Override
-        public void success(Result<TimelineResult<Tweet>> result) {
-
-        }
-
-        @Override
-        public void failure(TwitterException exception) {
-            //validate();
-        }
-    };
 
     private CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
         AnimationSuite.pulseAnimation(view, () -> {
@@ -66,17 +50,6 @@ public class ListTweetsFragment extends BaseListFragment {
         });
     };
 
-    private void validate() {
-        if (getListAdapter().getCount() > 0) {
-            return;
-        }
-
-        if (getListAdapter().getCount() == 0) {
-            //todo show empty item
-        } else {
-            //todo show snakbar
-        }
-    }
 
     @Override
     protected void settings(View rootView) {

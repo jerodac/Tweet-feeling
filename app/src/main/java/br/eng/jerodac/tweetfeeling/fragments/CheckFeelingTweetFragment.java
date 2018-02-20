@@ -38,7 +38,7 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
 
     @Override
     public void onError() {
-
+        getFlowManager().replaceChildFragment(getChildFragmentManager(), ErrorFragment.newInstance());
     }
 
     @Override
