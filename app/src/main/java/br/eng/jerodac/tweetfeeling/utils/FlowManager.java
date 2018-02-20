@@ -15,6 +15,7 @@ public class FlowManager {
 
     private BaseActivity mActivity;
     private int mContainer = R.id.fragment_container;
+    private int mContainerChild = R.id.fragment_container_child;
     private FragmentManager mFragmentManager;
 
     public FlowManager(BaseActivity appCompatActivity) {
@@ -29,6 +30,14 @@ public class FlowManager {
         ft.add(mContainer, addFragment, addFragment.getTagName());
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    public void replaceChildFragment(FragmentManager childFragmentManager, BaseFragment fragment) {
+        childFragmentManager
+                .beginTransaction()
+                .replace(mContainerChild, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commitAllowingStateLoss();
     }
 
     //Replace Fragment

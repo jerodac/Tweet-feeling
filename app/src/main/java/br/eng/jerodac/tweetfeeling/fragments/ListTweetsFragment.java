@@ -11,6 +11,7 @@ import com.twitter.sdk.android.tweetui.TimelineResult;
 
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.adapter.CustomTweetTimelineListAdapter;
+import br.eng.jerodac.tweetfeeling.utils.AnimationSuite;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 15/02/2018.
@@ -59,8 +60,10 @@ public class ListTweetsFragment extends BaseListFragment {
     };
 
     private CustomTweetTimelineListAdapter.OnListItemClickListener onListItemClickListener = (int position, Tweet tweet, View view) -> {
-        getController().setTweetSelected(tweet);
-        getFlowManager().replace(CheckFeelingTweetFragment.newInstance(), true);
+        AnimationSuite.pulseAnimation(view, () -> {
+            getController().setTweetSelected(tweet);
+            getFlowManager().replace(CheckFeelingTweetFragment.newInstance(), true);
+        });
     };
 
     private void validate() {

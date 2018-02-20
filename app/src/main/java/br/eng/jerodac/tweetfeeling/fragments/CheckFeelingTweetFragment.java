@@ -28,18 +28,12 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
     @Override
     protected void initComponents(View rootView) {
         getController().analytzText(this);
-        getChildFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, new LoadingFragment())
-                .commitAllowingStateLoss();
+        getFlowManager().replaceChildFragment(getChildFragmentManager(), LoadingFragment.newInstance());
     }
 
     @Override
     public void onSuccess(Model model) {
-        getChildFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, new FeelingTweetFragment())
-                .commitAllowingStateLoss();
+        getFlowManager().replaceChildFragment(getChildFragmentManager(), FeelingTweetFragment.newInstance());
     }
 
     @Override

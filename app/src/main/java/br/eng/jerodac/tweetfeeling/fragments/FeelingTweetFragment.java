@@ -20,6 +20,10 @@ import pl.bclogic.pulsator4droid.library.PulsatorLayout;
  */
 public class FeelingTweetFragment extends BaseFragment {
 
+    public static FeelingTweetFragment newInstance() {
+        return new FeelingTweetFragment();
+    }
+
     @BindView(R.id.group_emoji_container)
     protected EmojiRainLayout emojiContainer;
 

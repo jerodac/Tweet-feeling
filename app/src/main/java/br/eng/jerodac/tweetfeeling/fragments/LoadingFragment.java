@@ -10,6 +10,10 @@ import br.eng.jerodac.tweetfeeling.R;
  */
 public class LoadingFragment extends BaseFragment {
 
+    public static LoadingFragment newInstance() {
+        return new LoadingFragment();
+    }
+
     @Override
     public String getTagName() {
         return getClass().getSimpleName();
