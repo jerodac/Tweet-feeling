@@ -51,7 +51,6 @@ NaturalLanguageUnitTest.java
 <img src="https://i.imgur.com/TsGQ1Wt.jpg">
 
 ###
-VIDEO
-[![Alt text for your video](https://drive.google.com/file/d/1wk-28XB1pVNYcQITgwbAJtt2ZSxiPPTR/view?usp=sharing)
+UX FLOW VIDEO
 https://drive.google.com/file/d/1wk-28XB1pVNYcQITgwbAJtt2ZSxiPPTR/view
 
