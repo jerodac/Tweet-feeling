@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#0090a6</color>
     <color name="colorAccent">#008B8B</color>
 
+    <color name="color_bg_app">#FFFFFF</color>
     <color name="color_feeling_happy">#ffff00</color>
     <color name="color_feeling_happy_dark">#b3b301</color>
     <color name="color_feeling_neutral">#979797</color>
