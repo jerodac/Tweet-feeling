@@ -3,7 +3,6 @@ package br.eng.jerodac.tweetfeeling.utils;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,16 +23,7 @@ public class AppUtil {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void setStatusBarColor(AppCompatActivity activity, int resourceColor) {
-
         Window window = activity.getWindow();
-
-//        // clear FLAG_TRANSLUCENT_STATUS flag:
-//        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//
-//        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-        // finally change the color
         window.setStatusBarColor(ContextCompat.getColor(activity, resourceColor));
     }
 
