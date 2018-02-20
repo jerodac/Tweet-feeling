@@ -2,7 +2,7 @@ package br.eng.jerodac.tweetfeeling.models;
 
 import com.twitter.sdk.android.core.models.Tweet;
 
-import br.eng.jerodac.tweetfeeling.Feeling;
+import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 
 /**
  * Created by Eng. Jean Rodrigo Dalbon Cunha on 16/02/2018.

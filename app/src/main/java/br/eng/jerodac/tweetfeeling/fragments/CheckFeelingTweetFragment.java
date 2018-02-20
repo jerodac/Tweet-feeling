@@ -51,10 +51,4 @@ public class CheckFeelingTweetFragment extends BaseFragment implements Presenter
     protected void settings(View rootView) {
 
     }
-
-    @Override
-    public void onDestroyView() {
-        getActivity().setTitle(R.string.app_name);
-        super.onDestroyView();
-    }
 }

@@ -77,6 +77,6 @@ public class ListTweetsFragment extends BaseListFragment {
 
     @Override
     protected void settings(View rootView) {
-        getActivity().setTitle(getController().getModel().getDisplayTweetTag());
+        getMainActivity().getToolbar().setTitle(getController().getModel().getDisplayTweetTag());
     }
 }

@@ -1,4 +1,6 @@
-package br.eng.jerodac.tweetfeeling;
+package br.eng.jerodac.tweetfeeling.bussiness;
+
+import br.eng.jerodac.tweetfeeling.R;
 
 /**
  * Created by Jean Rodrigo Dalbon Cunha on 16/02/2018.

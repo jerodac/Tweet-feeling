@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
-import br.eng.jerodac.tweetfeeling.Feeling;
+import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.utils.AnimationSuite;
 import butterknife.BindView;
@@ -58,7 +58,7 @@ public class FeelingTweetFragment extends BaseFragment {
 
     @Override
     protected void settings(View rootView) {
-        getActivity().setTitle(getModel().getFeeling().getResourceString());
+
     }
 
     @Override

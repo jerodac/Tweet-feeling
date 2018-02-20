@@ -2,6 +2,7 @@ package br.eng.jerodac.tweetfeeling;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import br.eng.jerodac.tweetfeeling.utils.FlowManager;
 
@@ -15,12 +16,19 @@ public class BaseActivity extends AppCompatActivity {
      */
     private static FlowManager mFlowManager;
 
+    public Toolbar mToolbar;
+
+    private void initComponents() {
+        mFlowManager = new FlowManager(this);
+        mToolbar = findViewById(R.id.toolbar);
+    }
+
     public FlowManager getFlowManager() {
         return mFlowManager;
     }
 
-    private void initComponents() {
-        mFlowManager = new FlowManager(this);
+    public Toolbar getToolbar() {
+        return mToolbar;
     }
 
     @Override

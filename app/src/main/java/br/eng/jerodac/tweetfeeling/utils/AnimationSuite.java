@@ -7,7 +7,7 @@ import android.view.animation.AnimationUtils;
 
 import com.luolc.emojirain.EmojiRainLayout;
 
-import br.eng.jerodac.tweetfeeling.Feeling;
+import br.eng.jerodac.tweetfeeling.bussiness.Feeling;
 import br.eng.jerodac.tweetfeeling.R;
 import br.eng.jerodac.tweetfeeling.controllers.MainController;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;

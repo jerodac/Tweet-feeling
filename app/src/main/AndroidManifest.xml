@@ -18,12 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TwitterCoreMainActivity"
-            android:label="@string/kit_twittercore"/>
-        <activity
-            android:name=".TimelineActivity"
-            android:label="Test"/>
     </application>
 
 </manifest>
