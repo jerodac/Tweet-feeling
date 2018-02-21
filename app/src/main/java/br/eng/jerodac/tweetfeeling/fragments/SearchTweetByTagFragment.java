@@ -47,7 +47,7 @@ public class SearchTweetByTagFragment extends BaseFragment {
     private boolean validateField() {
         if (edtTag.getText().toString().equals("")) {
             inputLayoutTag.setErrorEnabled(true);
-            inputLayoutTag.setError("Please insert a tweet tag ;)");
+            inputLayoutTag.setError(getResources().getString(R.string.tweet_tag_error_message));
             return false;
         } else {
             inputLayoutTag.setErrorEnabled(false);

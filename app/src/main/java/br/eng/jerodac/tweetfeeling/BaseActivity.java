@@ -16,6 +16,9 @@ public class BaseActivity extends AppCompatActivity {
      */
     private static FlowManager mFlowManager;
 
+    /**
+     * Toolbar
+     */
     public Toolbar mToolbar;
 
     private void initComponents() {
