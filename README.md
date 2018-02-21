@@ -15,9 +15,6 @@ Loading a Tweet List with the help of the Twitter SDK using Google Natural Langu
 - https://developer.twitter.com ->  to fetch user's tweets
 - https://cloud.google.com/natural-language  -> Google's Natural Language API
 
-## APK LINK
-https://goo.gl/vh86VD
-
 ## DEVELOPER INFO
 - Jean Rodrigo Dalbon Cunha
 - Senior Android Engineer <br>
