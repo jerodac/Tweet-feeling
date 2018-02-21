@@ -27,6 +27,8 @@ android {
             resValue "string", "com.twitter.sdk.android.CONSUMER_SECRET", "\"${props.getProperty("twitterConsumerSecret")}\""
             resValue "bool", "com.twitter.sdk.android.TRACE_ENABLED", "true"
             resValue "bool", "com.twitter.sdk.android.COLLECT_IDENTIFIERS_ENABLED", "true"
+            resValue "string", "test", "\"test\""
+            buildConfigField "String", "CLOUD_API_KEY", "\"AIzaSyBo6TfvBXn2aO6sZftBW8mZvKHmnQYHST8\""
             buildConfigField "String", "MOPUB_AD_UNIT_ID", "\"${props.getProperty("mopubAdUnitId")}\""
         }
         release {
@@ -35,6 +37,7 @@ android {
             resValue "string", "com.twitter.sdk.android.CONSUMER_SECRET", "\"${props.getProperty("twitterConsumerSecret")}\""
             resValue "bool", "com.twitter.sdk.android.TRACE_ENABLED", "false"
             resValue "bool", "com.twitter.sdk.android.COLLECT_IDENTIFIERS_ENABLED", "true"
+            buildConfigField "String", "CLOUD_API_KEY", "\"AIzaSyBo6TfvBXn2aO6sZftBW8mZvKHmnQYHST8\""
             buildConfigField "String", "MOPUB_AD_UNIT_ID", "\"${props.getProperty("mopubAdUnitId")}\""
         }
     }
